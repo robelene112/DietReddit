@@ -1,0 +1,33 @@
+.header {
+    height: 3.875rem;
+    background-color: white;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.logo-container {
+    position: absolute;
+    left: 3.875rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.logo {
+    width: 2.25rem;
+}
+
+.logo-text {
+    color: #444444;
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-left: 0.3125rem
+
+}
+
+#word-reddit {
+    color: #fecace;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
