@@ -1,6 +1,8 @@
 import React from "react";
 import "./Header.css";
+import "./Header-mobile.css";
 import logo from "./kirby.png";
+import Search from "../../features/search/Search";
 
 const Header = () => {
   return (
@@ -11,6 +13,7 @@ const Header = () => {
           Diet<span id="word-reddit">reddit</span>
         </h1>
       </div>
+      <Search />
     </div>
   );
 };
