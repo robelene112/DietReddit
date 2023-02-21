@@ -1,3 +1,17 @@
 html {
-  background-color: #fafafa;
+  background-color: #b1b1b1;
+}
+
+.main-content-flex-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.main-content-div {
+  width: 97%;
+  border: 1px solid red;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }

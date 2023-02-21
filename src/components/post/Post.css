@@ -1,0 +1,10 @@
+.post-div {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+}
+
+.a {
+    background: red;
+    height: 100px;
+}

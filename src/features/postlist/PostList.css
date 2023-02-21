@@ -1,0 +1,5 @@
+.postlist-div {
+    height: 20rem;
+    background: white;
+    grid-column: span 3;
+}
