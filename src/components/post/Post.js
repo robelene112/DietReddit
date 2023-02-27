@@ -10,7 +10,7 @@ const Post = () => {
         <button className="updoot-down">⇩</button>
       </div>
       <div>
-        <h2>Heckin wholesome post!!</h2>
+        <h3>Heckin wholesome post!!</h3>
         <img
           src="https://i.pinimg.com/originals/10/67/29/1067297eead5bdb13f0a5195d4193e5d.png"
           className="post-image"
