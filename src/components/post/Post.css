@@ -1,10 +1,58 @@
 .post-div {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 10px;
+    display: flex;
+    margin-bottom: 1rem;
+    background: white;
+    padding: 1rem;
+    /* grid-template-columns: repeat(10, 1fr); */
+    /* gap: 10px; */
+    /* border: 1px solid orchid; */
+    /* overflow: scroll; */
+    /* width: clamp(3rem, 20%, 5rem); */
+    /* height: 100%; */
 }
 
-.a {
-    background: red;
-    height: 100px;
+.updoot-div {
+    /* background: red; */
+    display: inline;
+    /* grid-template-rows: repeat(3, 1fr); */
+    /* flex-direction: column; */
+    height: 100%;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* font-size: 1.5rem; */
+    /* border: 1px solid green; */
+    
+}
+
+.updoot-up {
+    /* height: 33%; */
+    /* text-align: center; */
+    /* border: 1px solid yellow; */
+    
+}
+
+.updoot-count {
+    /* height: 33%; */
+    /* border: 1px solid yellow; */
+    /* font-size: 1rem; */
+    /* text-align: center; */
+    /* vertical-align: 10%; */
+
+}
+
+.updoot-down {
+    /* height: 33%; */
+    /* border: 1px solid yellow; */
+    /* text-align: center; */
+
+    
+}
+
+.post-image {
+    max-width: 40vw;
+}
+
+.metadata-div {
+    display: flex;
+    justify-content: space-between;
 }

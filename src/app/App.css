@@ -6,11 +6,12 @@ html {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  /* border: 1px solid green */
 }
 
 .main-content-div {
   width: 97%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(4, 1fr);

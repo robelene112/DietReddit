@@ -7,6 +7,10 @@ const PostList = () => {
   return (
     <div className="postlist-div">
       <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
     </div>
   );
 };
