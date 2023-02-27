@@ -1,4 +1,5 @@
 .subreddits-div {
     background: white;
     grid-column: span 1;
+    border-radius: 8px;
 }

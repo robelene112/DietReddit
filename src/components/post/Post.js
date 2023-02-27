@@ -5,14 +5,36 @@ const Post = () => {
   return (
     <div className="post-div">
       <div className="updoot-div">
-        <button className="updoot-up">⇧</button>
+        <button className="updoot">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-caret-up-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+          </svg>
+        </button>
         <div className="updoot-count">13k</div>
-        <button className="updoot-down">⇩</button>
+        <button className="updoot">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-caret-down-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg>
+        </button>
       </div>
       <div>
-        <h3>Heckin wholesome post!!</h3>
+        <h3 className="post-title">Heckin wholesome post!!</h3>
         <img
-          src="https://i.pinimg.com/originals/10/67/29/1067297eead5bdb13f0a5195d4193e5d.png"
+          src="https://i.redd.it/6zn5jxd70kka1.jpg"
           className="post-image"
         ></img>
         <div className="metadata-div">
