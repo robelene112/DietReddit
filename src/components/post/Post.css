@@ -1,51 +1,78 @@
 .post-div {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3.2rem 66vw;
     margin-bottom: 1rem;
     background: white;
     padding: 1rem;
     border-radius: 8px;
-    border: 1px solid #f0f0f0
-    /* grid-template-columns: repeat(10, 1fr); */
-    /* gap: 10px; */
-    /* border: 1px solid orchid; */
-    /* overflow: scroll; */
-    /* width: clamp(3rem, 20%, 5rem); */
-    /* height: 100%; */
+    border: 1px solid #f0f0f0;
+    box-shadow: 0px 6px 4px -2px #dadada;
 }
 
 .updoot-div {
-    /* background: red; */
-    display: inline;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    color: #717474;
-    height: 100%;
-    /* grid-template-rows: repeat(3, 1fr); */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* font-size: 1.5rem; */
-    /* border: 1px solid green; */
-    
+    color: #717474; /* 717474 */
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    font-weight: 700;
+
+    /* padding-right: 2rem; */
+    /* padding-top: 2rem; */
 }
 
 .updoot {
+    font-size: 1.3rem;
     border: none;
     background: none;
     cursor: pointer;
     color: #717474;
+    display: flex;
+
+}
+
+.content-div {
+    grid-column-start: 2;
 }
 
 .post-title {
-    color: #444444;
-    font-size: 1rem; /*clamp(0.5rem, 3vw, 1.5rem)*/
+    color: #484444;
+    font-size: clamp(0.5rem, 4vw, 1.3rem);
+    padding-bottom: 0.7rem;
+    font-weight: 700;
+
+
+    /* height: 5%; */
+    /* vertical-align: auto; */
 }
 
 .post-image {
-    max-width: 40vw;
+    /* height: 80%; */
+    width: 100%;
+    border-radius: 5px;
+    padding-bottom: 0.7rem;
 }
 
 .metadata-div {
+    padding-top: 0.7rem;
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid rgb(207, 207, 207);
+    /* width: 100%; */
+}
+
+.author {
+    color: #fecace;
+    font-weight: 700;
+}
+
+.upload-time {
+    font-weight: 100;
+    font-size: 0.8rem;
+    color: #717474; /* 717474 */
+}
+
+.comments {
+    font-weight: 100;
+    font-size: 0.8rem;  
+    color: #717474; /* 717474 */
+
 }

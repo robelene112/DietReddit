@@ -1,5 +1,6 @@
 import React from "react";
 import "./Post.css";
+import "./Post-mobile.css";
 
 const Post = () => {
   return (
@@ -8,8 +9,8 @@ const Post = () => {
         <button className="updoot">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="28"
+            height="28"
             fill="currentColor"
             class="bi bi-caret-up-fill"
             viewBox="0 0 16 16"
@@ -21,8 +22,8 @@ const Post = () => {
         <button className="updoot">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="28"
+            height="28"
             fill="currentColor"
             class="bi bi-caret-down-fill"
             viewBox="0 0 16 16"
@@ -31,16 +32,18 @@ const Post = () => {
           </svg>
         </button>
       </div>
-      <div>
-        <h3 className="post-title">Heckin wholesome post!!</h3>
+      <div className="content-div">
+        <div className="post-title">
+          <h3>Heckin wholesome post!!</h3>
+        </div>
         <img
           src="https://i.redd.it/6zn5jxd70kka1.jpg"
           className="post-image"
         ></img>
         <div className="metadata-div">
-          <p>Costner-Facts</p>
-          <p>17 hours ago</p>
-          <p>264</p>
+          <p className="author">Costner-Facts</p>
+          <p className="upload-time">17 hours ago</p>
+          <p className="comments">264</p>
         </div>
       </div>
     </div>
