@@ -1,11 +1,12 @@
 import React from "react";
 import "./SubReddits.css";
 import "./SubReddits-mobile.css";
+import askreddit from "./assets/askreddit.png";
+import funny from "./assets/funny.png";
 
 const SubReddits = () => {
   const subReddits = {
-    AskReddit:
-      "https://styles.redditmedia.com/t5_2qh1i/styles/communityIcon_tijjpyw1qe201.png",
+    AskReddit: askreddit,
     mildyinfuriating:
       "https://styles.redditmedia.com/t5_2ubgg/styles/communityIcon_lkxajjefezh51.png?width=256&v=enabled&s=e9f08e5f20f9c160ae08bda2cfd54ad5af270323",
     interestingasfuck:
@@ -18,21 +19,58 @@ const SubReddits = () => {
       "https://styles.redditmedia.com/t5_2qh3s/styles/communityIcon_yq9ah8eniar81.jpg?width=256&format=pjpg&v=enabled&s=8f37365c563a8960ff102217387d22923856df76",
   };
 
+  const handleClick = ({ target }) => {
+    let redditDiv;
+    if (target.tagName === "DIV") {
+      const unorderedListEntries =
+        target.parentElement.parentElement.childNodes;
+
+      const selectedElement = Object.entries(unorderedListEntries).filter(
+        (element) => {
+          console.log(element[1].childNodes[0]);
+          console.log(`Corresponding ${element[1].childNodes[0].className}`);
+          return element[1].childNodes[0].className === "reddit-div selected";
+        }
+      );
+
+      console.log(selectedElement);
+
+      if (selectedElement.length > 0) {
+        console.log("Found selected element");
+        console.log(selectedElement[0][1].childNodes[0]);
+        selectedElement[0][1].childNodes[0].classList.toggle("selected");
+      } else {
+        redditDiv = document.getElementById(target.id);
+        redditDiv.classList.toggle("selected");
+      }
+    }
+  };
+
   return (
     <div className="subreddits-div">
-      <h2>SubReddits</h2>
-      <ul>
-        {Object.entries(subReddits).map((reddit) => {
-          return (
-            <li>
-              <div>
-                <img src={reddit[1]} />
-                <p>{reddit[0]}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="title-container">
+        <h2>Subreddits</h2>
+      </div>
+      <div className="listoptions">
+        <ul>
+          {Object.entries(subReddits).map((reddit) => {
+            return (
+              <li>
+                <div
+                  id={reddit[0]}
+                  className="reddit-div"
+                  onClick={handleClick}
+                >
+                  <div className="image">
+                    <img src={reddit[1]} />
+                  </div>
+                  <p>{reddit[0]}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
