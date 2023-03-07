@@ -8,6 +8,15 @@ const Header = () => {
   const handleClick = (e) => {
     const hamburger = document.querySelector(".hamburger");
     hamburger.classList.toggle("is-active");
+
+    const subRedditDiv = document.querySelector(".subreddits-div");
+    console.log(subRedditDiv);
+
+    if (hamburger.className === "hamburger is-active") {
+      subRedditDiv.style = "display: block; position: absolute";
+    } else {
+      subRedditDiv.style = "display: none";
+    }
   };
 
   return (
