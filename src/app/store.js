@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import testSlice from "../features/testSlice";
+import subRedditsSlice from "../features/subredditstate/subRedditsSlice";
 
 export const store = configureStore({
   reducer: {
-    testSlice,
+    subRedditsSlice,
   },
 });
