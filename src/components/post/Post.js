@@ -59,7 +59,42 @@ const Post = () => {
           <div className="comments-header-container">
             <h3>Comments</h3>
           </div>
-          <div></div>
+          <div className="comments-container">
+            <div className="comment">
+              <div className="comment-metadata">
+                <p>robelene112</p>
+                <p>7 hours ago</p>
+              </div>
+              <p>This is a hecking wholesome comment!! Updoots for everyone!</p>
+            </div>
+
+            <div className="comment">
+              <div className="comment-metadata">
+                <p>robelene112</p>
+                <p>7 hours ago</p>
+              </div>
+              <p>
+                Frankly i don't agree how this can be heckin wholesome to
+                anyone. As a long time redditooor with over 6 gorillian karma i
+                don't think this fits within the Our democracy and bla bla bla
+                bla
+              </p>
+            </div>
+            <div className="comment">
+              <div className="comment-metadata">
+                <p>robelene112</p>
+                <p>7 hours ago</p>
+              </div>
+              <p>This is a hecking wholesome comment!! Updoots for everyone!</p>
+            </div>
+            <div className="comment">
+              <div className="comment-metadata">
+                <p>ballsaque</p>
+                <p>10 hours ago</p>
+              </div>
+              <p>word</p>
+            </div>
+          </div>
         </div>
       ) : (
         ""

@@ -37,16 +37,22 @@ h2 {
 
 .reddit-div:hover {
     cursor: pointer;
-    background-color: #dddddd;
+    background-color: #ffd9f9;
 }
 
 .selected {
-    border-left: 3px solid blue
-}
+    border-left: 4px solid rgb(255, 0, 204);
+    color: rgb(255, 0, 204);
+    background-color: #fecace;
 
+}
 
 .subreddit-image {
     margin: 1rem;
     width: 20%;
     height: 100%;
+}
+
+.comment > p {
+    padding-top: 1rem;
 }
