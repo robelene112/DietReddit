@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import "./Post-mobile.css";
 
 const Post = () => {
+  const [showComments, setShowComments] = useState(false);
+
+  const toggleComments = () => {
+    setShowComments(!showComments);
+  };
+
   return (
     <div className="post-div">
       <div className="updoot-div">
@@ -43,9 +49,21 @@ const Post = () => {
         <div className="metadata-div">
           <p className="author">Costner-Facts</p>
           <p className="upload-time">17 hours ago</p>
-          <p className="comments">264</p>
+          <p className="comments" onClick={toggleComments}>
+            💬 264
+          </p>
         </div>
       </div>
+      {showComments ? (
+        <div className="comments-div">
+          <div className="comments-header-container">
+            <h3>Comments</h3>
+          </div>
+          <div></div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

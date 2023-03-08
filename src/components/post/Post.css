@@ -1,3 +1,7 @@
+.post-div * {
+    /* border: 1px solid red; */
+}
+
 .post-div {
     display: grid;
     grid-template-columns: 3.2rem 64vw;
@@ -73,5 +77,30 @@
     font-weight: 100;
     font-size: 0.8rem;  
     color: #717474; /* 717474 */
+    cursor: pointer
+}
 
+.comments-div {
+    height: 20rem;
+    grid-column: span 2;
+    width: 100%;
+    border: 1px solid #484444;
+    border-radius: 10px;
+    /* border: 1px solid blue; */
+}
+
+.comments-header-container > h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #717474; /* 717474 */
+    width: 75%;
+    padding: 0.3rem 0;
+    text-align: center;
+    border-bottom: 1px solid #a4a4a4;
+
+}
+
+.comments-header-container {
+    display: flex;
+    justify-content: center;
 }
