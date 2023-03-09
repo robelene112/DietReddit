@@ -1,27 +1,43 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const fetchPosts = createAsyncThunk(
+export const fetchPosts = createAsyncThunk(
   "postListSlice/fetchPosts",
   async (arg, { getState }) => {
-    const { selectedSubreddit } = getState().selectedSubReddit;
+    console.log("start");
+    const { selectedSubReddit } = getState().subRedditsSlice;
+    const url = `https://www.reddit.com/r/${selectedSubReddit}.json`;
+    const response = await fetch(url);
+    if (response.status !== 200) {
+      throw new Error("Could not fetch resource");
+    }
+    const json = await response.json();
+
+    return json;
   }
 );
+
+console.log(fetchPosts);
 
 const postListSlice = createSlice({
   name: "postListSlice",
   initialState: { posts: [] },
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
+  reducers: {},
+  extraReducers: {
+    [fetchPosts.fulfilled]: (state, action) => {
+      for (const post of action.payload.data.children) {
+        state.posts.push({
+          title: post.data.title,
+          image: post.data.url,
+        });
+        console.log(post.data.title);
+      }
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase();
+    [fetchPosts.rejected]: (state, action) => {
+      console.log("rejected");
+    },
   },
 });
 
-export const postListSliceSelector = (state) => state.postListSlice.value;
-
-export const {} = postListSlice.actions;
+export const postListSliceSelector = (state) => state.postListSlice.posts;
 
 export default postListSlice.reducer;

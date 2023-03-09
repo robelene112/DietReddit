@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Post.css";
 import "./Post-mobile.css";
 
-const Post = () => {
+const Post = (props) => {
   const [showComments, setShowComments] = useState(false);
 
   const toggleComments = () => {
@@ -38,12 +38,9 @@ const Post = () => {
       </div>
       <div className="content-div">
         <div className="post-title">
-          <h3>Heckin wholesome post!!</h3>
+          <h3>{props.title}</h3>
         </div>
-        <img
-          src="https://i.redd.it/6zn5jxd70kka1.jpg"
-          className="post-image"
-        ></img>
+        <img src={props.image} className="post-image"></img>
         <div className="metadata-div">
           <p className="author">Costner-Facts</p>
           <p className="upload-time">17 hours ago</p>

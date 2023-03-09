@@ -3,6 +3,7 @@ import "./SubReddits.css";
 import "./SubReddits-mobile.css";
 import { selectSubReddit, SubRedditsSelector } from "./subRedditsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../postlist/postListSlice";
 
 const SubReddits = () => {
   const subReddits = useSelector(SubRedditsSelector);
@@ -15,9 +16,11 @@ const SubReddits = () => {
     if (target.tagName === "DIV") {
       target.classList.toggle("selected");
       dispatch(selectSubReddit(target.innerText));
+      dispatch(fetchPosts());
     } else {
       target.parentElement.classList.toggle("selected");
       dispatch(selectSubReddit(target.parentElement.innerText));
+      dispatch(fetchPosts());
     }
   };
 
