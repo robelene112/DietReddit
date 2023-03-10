@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchPosts = createAsyncThunk(
   "postListSlice/fetchPosts",
   async (arg, { getState }) => {
-    console.log("start");
     const { selectedSubReddit } = getState().subRedditsSlice;
     const url = `https://www.reddit.com/r/${selectedSubReddit}.json`;
     const response = await fetch(url);
@@ -16,21 +15,17 @@ export const fetchPosts = createAsyncThunk(
   }
 );
 
-console.log(fetchPosts);
-
 const postListSlice = createSlice({
   name: "postListSlice",
   initialState: { posts: [] },
   reducers: {},
   extraReducers: {
     [fetchPosts.fulfilled]: (state, action) => {
+      let posts = [];
       for (const post of action.payload.data.children) {
-        state.posts.push({
-          title: post.data.title,
-          image: post.data.url,
-        });
-        console.log(post.data.title);
+        posts.push(post.data);
       }
+      state.posts = posts;
     },
     [fetchPosts.rejected]: (state, action) => {
       console.log("rejected");

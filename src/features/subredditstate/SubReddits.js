@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SubReddits.css";
 import "./SubReddits-mobile.css";
 import { selectSubReddit, SubRedditsSelector } from "./subRedditsSlice";
@@ -23,6 +23,10 @@ const SubReddits = () => {
       dispatch(fetchPosts());
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
 
   // TODO: use the selectedSubReddit to choose the selected class
 

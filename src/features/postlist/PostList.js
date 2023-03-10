@@ -10,8 +10,20 @@ const PostList = () => {
 
   return (
     <div className="postlist-div">
-      {posts.map((post) => {
-        return <Post title={post.title} image={post.image} />;
+      {posts.map((post, index) => {
+        return (
+          <Post
+            key={index}
+            title={post.title}
+            media={post.url}
+            updoots={post.ups}
+            author={post.author}
+            created={post.created}
+            commentcount={post.num_comments}
+            isVideo={post.is_video}
+            secureMedia={post.secure_media}
+          />
+        );
       })}
     </div>
   );

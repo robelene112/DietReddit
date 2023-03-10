@@ -9,6 +9,25 @@ const Post = (props) => {
     setShowComments(!showComments);
   };
 
+  const showMedia = () => {
+    if (props.isVideo) {
+      return (
+        <video className="post-media" controls>
+          <source
+            src={props.secureMedia.reddit_video.fallback_url}
+            type="video/mp4"
+          ></source>
+          no browser support
+        </video>
+      );
+    }
+    if (props.media.slice(-4)[0] === ".") {
+      return <img src={props.media} className="post-media"></img>;
+    }
+
+    return "";
+  };
+
   return (
     <div className="post-div">
       <div className="updoot-div">
@@ -23,7 +42,7 @@ const Post = (props) => {
             <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
           </svg>
         </button>
-        <div className="updoot-count">13k</div>
+        <div className="updoot-count">{props.updoots}</div>
         <button className="updoot">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,12 +59,13 @@ const Post = (props) => {
         <div className="post-title">
           <h3>{props.title}</h3>
         </div>
-        <img src={props.image} className="post-image"></img>
+        {showMedia()}
+        {/* <img src={props.media} className="post-image"></img> */}
         <div className="metadata-div">
-          <p className="author">Costner-Facts</p>
+          <p className="author">{props.author}</p>
           <p className="upload-time">17 hours ago</p>
           <p className="comments" onClick={toggleComments}>
-            💬 264
+            💬 {props.commentcount}
           </p>
         </div>
       </div>
