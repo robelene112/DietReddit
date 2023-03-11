@@ -22,6 +22,7 @@ const PostList = () => {
             commentcount={post.num_comments}
             isVideo={post.is_video}
             secureMedia={post.secure_media}
+            isPinned={post.pinned}
           />
         );
       })}

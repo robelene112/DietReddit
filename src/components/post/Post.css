@@ -1,44 +1,41 @@
-.post-div {
+.grid-container {
     display: grid;
     grid-template-columns: 3.2rem 64vw;
+    gap: 0.5rem;
     margin-bottom: 1rem;
     background: white;
-    padding: 1rem;
-    border-radius: 8px;
     border: 1px solid #f0f0f0;
     box-shadow: 0px 6px 4px -2px #dadada;
+    padding: 1rem;
+
 }
 
-.updoot-div {
-    color: #717474; /* 717474 */
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    font-weight: 700;
+.upvotes {
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(88, 88, 88)
 }
 
-.updoot {
-    font-size: 1.3rem;
+.upvote-button {
     border: none;
     background: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(88, 88, 88)
+}
+
+.upvote-button:hover {
     cursor: pointer;
-    color: #717474;
-    display: flex;
-
 }
 
-.content-div {
-    grid-column-start: 2;
-}
-
-.post-title {
-    color: #484444;
-    font-size: clamp(0.5rem, 4vw, 1.3rem);
+.title {
     padding-bottom: 0.7rem;
     font-weight: 700;
+    color: rgb(88, 88, 88)
+}
 
-
-    /* height: 5%; */
-    /* vertical-align: auto; */
+.content {
+    grid-column-start: 2;
 }
 
 .post-media {
@@ -54,12 +51,28 @@ video.post-media {
     width: 80%;
 }
 
-.metadata-div {
-    padding-top: 0.7rem;
+p.post-media {
+    padding-left: 0.7rem;
+    padding-bottom: 1rem;
+    font-style: italic;
+    color: rgb(210, 210, 210)
+}
+
+.metadata {
     display: flex;
     justify-content: space-between;
+    padding-top: 0.7rem;
     border-top: 1px solid rgb(207, 207, 207);
-    /* width: 100%; */
+    color: rgb(126, 126, 126);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.comments {
+    font-weight: 100;
+    font-size: 0.8rem;  
+    color: #717474;
+    cursor: pointer
 }
 
 .author {
@@ -70,23 +83,16 @@ video.post-media {
 .upload-time {
     font-weight: 100;
     font-size: 0.8rem;
-    color: #717474; /* 717474 */
+    color: #ababab; 
 }
 
-.comments {
-    font-weight: 100;
-    font-size: 0.8rem;  
-    color: #717474; /* 717474 */
-    cursor: pointer
-}
 
 .comments-div {
     height: 20rem;
     grid-column: span 2;
     width: 100%;
-    border: 1px solid #484444;
+    border: 1px solid #828282;
     border-radius: 10px;
-    /* border: 1px solid blue; */
 }
 
 .comments-header-container > h3 {
@@ -106,7 +112,6 @@ video.post-media {
 }
 
 .comments-container {
-    /* border: 1px solid red; */
     margin: 1rem;
     height: 80%;
     display: grid;
@@ -119,16 +124,15 @@ video.post-media {
     background-color: #f6f5f5;
     padding: 0.5rem;
     font-weight: 700;
+    font-size: 0.7rem;
     height: 100%;
-
+    color: rgb(67, 67, 67)
 }
 
 .comment-metadata {
     display: flex;
     justify-content: space-between;
     color: #717474;
-    /* font-family: 'IBM Plex Sans', sans-serif; */
-
 }
 
 .comment-metadata > p:first-child {
@@ -140,7 +144,5 @@ video.post-media {
 .comment-metadata > p:last-child {
     font-size: 0.8rem;
     font-weight: 100;
-    color: #717474; /* 717474 */
-
-
+    color: #717474;
 }
