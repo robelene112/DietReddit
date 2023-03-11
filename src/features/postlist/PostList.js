@@ -14,6 +14,7 @@ const PostList = () => {
         return (
           <Post
             key={index}
+            postNum={index}
             title={post.title}
             media={post.url}
             updoots={post.ups}

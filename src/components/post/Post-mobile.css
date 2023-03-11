@@ -2,13 +2,4 @@
     .grid-container {
         grid-template-columns: 2.5rem 72vw;
     }
-    
-    .updoot-div {
-        font-size: 1rem;
-    }
-
-    .updoot {
-        height: 2rem;
-        width: 2rem;
-    }
 }
