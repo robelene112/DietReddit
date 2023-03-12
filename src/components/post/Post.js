@@ -85,6 +85,32 @@ const Post = (props) => {
     }
   };
 
+  const createdBy = () => {
+    const created = new Date(props.created * 1000);
+    const todaysDate = new Date();
+    const timeElapsed = todaysDate.getTime() - created.getTime();
+    const timeElapsedInSeconds = timeElapsed / 1000;
+
+    if (timeElapsedInSeconds < 60) {
+      return "Just now";
+    } else if (timeElapsedInSeconds < 3600) {
+      const minutesAgo = Math.floor(timeElapsedInSeconds / 60);
+      return minutesAgo === 1 ? "1 minute ago" : `${minutesAgo} minutes ago`;
+    } else if (timeElapsedInSeconds < 86400) {
+      const hoursAgo = Math.floor(timeElapsedInSeconds / 3600);
+      return hoursAgo === 1 ? "1 hour ago" : `${hoursAgo} hours ago`;
+    } else if (timeElapsedInSeconds < 604800) {
+      const daysAgo = Math.floor(timeElapsedInSeconds / 86400);
+      return daysAgo === 1 ? "1 day ago" : `${daysAgo} days ago`;
+    } else if (timeElapsedInSeconds < 2592000) {
+      const weeksAgo = Math.floor(timeElapsedInSeconds / 604800);
+      return weeksAgo === 1 ? "1 week ago" : `${weeksAgo} weeks ago`;
+    } else {
+      const monthsAgo = Math.floor(timeElapsedInSeconds / 2592000);
+      return monthsAgo === 1 ? "1 month ago" : `${monthsAgo} months ago`;
+    }
+  };
+
   return (
     <div className="grid-container">
       <div className="upvotes">
@@ -105,7 +131,7 @@ const Post = (props) => {
         <div className="media">{showMedia()}</div>
         <div className="metadata">
           <p className="author">{props.author}</p>
-          <p className="created">17 hours ago</p>
+          <p className="created">{createdBy()}</p>
           <p className="comments" onClick={toggleComments}>
             💬 {props.commentcount}
           </p>
