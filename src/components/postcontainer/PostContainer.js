@@ -1,7 +1,7 @@
 import Post from "../post/Post";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchComments } from "../../features/comments/commentsSlice";
+import { fetchComments } from "../../features/postlist/postListSlice";
 
 const PostContainer = (props) => {
   const [showComments, setShowComments] = useState(false);
@@ -88,8 +88,8 @@ const PostContainer = (props) => {
     }
   };
 
-  const createdBy = () => {
-    const created = new Date(props.created * 1000);
+  const createdBy = (arg) => {
+    const created = arg ? new Date(arg * 1000) : new Date(props.created * 1000);
     const todaysDate = new Date();
     const timeElapsed = todaysDate.getTime() - created.getTime();
     const timeElapsedInSeconds = timeElapsed / 1000;
@@ -123,7 +123,7 @@ const PostContainer = (props) => {
       upvotes={upVotes}
       upVote={upVote}
       author={props.author}
-      created={createdBy()}
+      created={createdBy}
       commentcount={props.commentcount}
       toggleComments={toggleComments}
       showComments={showComments}

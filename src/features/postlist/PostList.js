@@ -15,14 +15,14 @@ const PostList = () => {
           <PostContainer
             key={index}
             postNum={index}
-            title={post.title}
-            url={post.url}
-            upvotes={post.ups}
-            author={post.author}
-            created={post.created}
-            commentcount={post.num_comments}
-            isVideo={post.is_video}
-            secureMedia={post.secure_media}
+            title={post.content.title}
+            url={post.content.url}
+            upvotes={post.content.ups}
+            author={post.content.author}
+            created={post.content.created}
+            commentcount={post.content.num_comments}
+            isVideo={post.content.is_video}
+            secureMedia={post.content.secure_media}
           />
         );
       })}

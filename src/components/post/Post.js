@@ -1,6 +1,6 @@
 import "./Post.css";
 import "./Post-mobile.css";
-import Comments from "../../features/comments/Comments";
+import Comments from "../comments/Comments";
 
 const Post = (props) => {
   return (
@@ -25,7 +25,7 @@ const Post = (props) => {
         <div className="media">{props.media}</div>
         <div className="metadata">
           <p className="author">{props.author}</p>
-          <p className="created">{props.created}</p>
+          <p className="created">{props.created()}</p>
           <p className="comments" onClick={props.toggleComments}>
             💬 {props.commentcount}
           </p>
@@ -37,7 +37,11 @@ const Post = (props) => {
             <h3>Comments</h3>
           </div>
           <div className="comments-container">
-            <Comments />
+            <Comments
+              key={props.postNum}
+              postNum={props.postNum}
+              created={props.created}
+            />
           </div>
         </div>
       ) : null}
