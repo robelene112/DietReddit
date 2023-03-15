@@ -10,18 +10,36 @@ const SubReddits = () => {
   const dispatch = useDispatch();
 
   const selectSubRedditHandler = ({ target }) => {
-    const currentlySelectedElement = document.querySelector(".selected"); // classname instead of queryselector
+    const currentlySelectedElement =
+      document.getElementsByClassName("selected")[0];
     currentlySelectedElement.classList.toggle("selected");
 
+    let reddit_div;
+
     if (target.tagName === "DIV") {
-      target.classList.toggle("selected");
-      dispatch(selectSubReddit(target.innerText));
-      dispatch(fetchPosts());
+      reddit_div = target;
     } else {
-      target.parentElement.classList.toggle("selected");
-      dispatch(selectSubReddit(target.parentElement.innerText));
-      dispatch(fetchPosts());
+      reddit_div = target.parentElement;
     }
+
+    reddit_div.classList.toggle("selected");
+    dispatch(selectSubReddit(reddit_div.innerText));
+    dispatch(fetchPosts());
+
+    if (window.innerWidth <= 480) {
+      const hamburger = document.getElementsByClassName("hamburger")[0];
+      hamburger.classList.toggle("is-active");
+
+      const subRedditDiv = document.querySelector(".subreddits-div");
+
+      if (hamburger.className === "hamburger is-active") {
+        subRedditDiv.style = "display: block; position: absolute";
+      } else {
+        subRedditDiv.style = "display: none";
+      }
+    }
+
+    console.log(window.innerWidth);
   };
 
   useEffect(() => {

@@ -5,12 +5,11 @@ import logo from "./kirby.png";
 import Search from "../../features/search/Search";
 
 const Header = () => {
-  const handleClick = (e) => {
-    const hamburger = document.querySelector(".hamburger");
+  const toggleHamburgerMenu = () => {
+    const hamburger = document.getElementsByClassName("hamburger")[0];
     hamburger.classList.toggle("is-active");
 
     const subRedditDiv = document.querySelector(".subreddits-div");
-    console.log(subRedditDiv);
 
     if (hamburger.className === "hamburger is-active") {
       subRedditDiv.style = "display: block; position: absolute";
@@ -28,7 +27,7 @@ const Header = () => {
         </h1>
       </div>
       <Search />
-      <div className="hamburger" onClick={handleClick}>
+      <div className="hamburger" onClick={toggleHamburgerMenu}>
         <div className="hamburger-line"></div>
         <div className="hamburger-line"></div>
         <div className="hamburger-line"></div>

@@ -1,0 +1,28 @@
+.comment {
+    background-color: #f6f5f5;
+    padding: 0.5rem;
+    font-weight: 700;
+    font-size: 0.7rem;
+    height: 100%;
+    color: rgb(67, 67, 67);
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.comment-metadata {
+    display: flex;
+    justify-content: space-between;
+    color: #717474;
+}
+
+.comment-metadata > p:first-child {
+    color: #fecace;
+    font-weight: 700;
+
+}
+
+.comment-metadata > p:last-child {
+    font-size: 0.8rem;
+    font-weight: 100;
+    color: #717474;
+}

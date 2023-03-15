@@ -37,13 +37,13 @@ h2 {
 
 .reddit-div:hover {
     cursor: pointer;
-    background-color: #ffd9f9;
+    background-color: #ffeff1;
 }
 
 .selected {
-    border-left: 4px solid rgb(255, 0, 204);
-    color: rgb(255, 0, 204);
-    background-color: #fecace;
+    border-left: 4px solid #ff00cc;
+    color: #ff00cc;
+    background-color: #ffeff1;
 
 }
 

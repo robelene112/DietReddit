@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import "./Comments.css";
 
 const Comments = (props) => {
   const comments = useSelector((state) => {
