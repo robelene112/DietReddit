@@ -3,8 +3,11 @@ import "./App-mobile.css";
 import Header from "../components/header/Header";
 import PostList from "../features/postlist/PostList";
 import SubReddits from "../features/subredditstate/SubReddits";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {}, [window.innerWidth]);
+
   return (
     <div className="App">
       <Header />

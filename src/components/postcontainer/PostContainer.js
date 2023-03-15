@@ -1,16 +1,19 @@
 import Post from "../post/Post";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchComments } from "../../features/postlist/postListSlice";
+import { viewComments } from "../../features/postlist/postListSlice";
 
 const PostContainer = (props) => {
-  const [showComments, setShowComments] = useState(false);
+  let showComments = useSelector(
+    (state) => state.postListSlice.posts[props.postNum].showComments
+  );
   const [voted, setVoted] = useState("");
   const [upVotes, setUpVotes] = useState(props.upvotes);
   const dispatch = useDispatch();
 
   const toggleComments = () => {
-    setShowComments(!showComments);
+    showComments = dispatch(viewComments(props.postNum));
     dispatch(fetchComments(props.postNum));
   };
 

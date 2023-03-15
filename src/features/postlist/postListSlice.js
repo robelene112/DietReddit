@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchPosts = createAsyncThunk(
   "postListSlice/fetchPosts",
@@ -35,7 +35,12 @@ export const fetchComments = createAsyncThunk(
 const postListSlice = createSlice({
   name: "postListSlice",
   initialState: { posts: [] },
-  reducers: {},
+  reducers: {
+    viewComments: (state, action) => {
+      state.posts[action.payload].showComments =
+        !state.posts[action.payload].showComments;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.fulfilled, (state, action) => {
@@ -44,6 +49,7 @@ const postListSlice = createSlice({
           posts.push({
             content: post.data,
             comments: [],
+            showComments: false,
           });
         }
         state.posts = posts;
@@ -58,6 +64,8 @@ const postListSlice = createSlice({
       });
   },
 });
+
+export const { viewComments } = postListSlice.actions;
 
 export const postListSliceSelector = (state) => state.postListSlice.posts;
 
