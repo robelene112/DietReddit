@@ -26,7 +26,7 @@ const SubReddits = () => {
     dispatch(selectSubReddit(reddit_div.innerText));
     dispatch(fetchPosts());
 
-    if (window.innerWidth <= 480) {
+    if (window.innerWidth <= 50 * 16 /* 50 em  */) {
       const hamburger = document.getElementsByClassName("hamburger")[0];
       hamburger.classList.toggle("is-active");
 
@@ -38,8 +38,6 @@ const SubReddits = () => {
         subRedditDiv.style = "display: none";
       }
     }
-
-    console.log(window.innerWidth);
   };
 
   useEffect(() => {

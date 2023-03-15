@@ -89,9 +89,13 @@ p.post-media {
 .comments-div {
     height: 20rem;
     grid-column: span 2;
-    width: 100%;
     border: 1px solid #828282;
     border-radius: 10px;
+}
+
+.comments-header-container {
+    display: flex;
+    justify-content: center;
 }
 
 .comments-header-container > h3 {
@@ -105,16 +109,11 @@ p.post-media {
 
 }
 
-.comments-header-container {
-    display: flex;
-    justify-content: center;
-}
-
 .comments-container {
     margin: 1rem;
     height: 80%;
     display: grid;
     grid-auto-rows: auto;
     gap: 0.5rem;
-    overflow-y: scroll;
+    overflow: scroll;
 }

@@ -5,8 +5,10 @@
     font-size: 0.7rem;
     height: 100%;
     color: rgb(67, 67, 67);
-    width: 100%;
-    overflow-wrap: break-word;
+}
+
+.comment:first-child {
+    word-break: break-all;
 }
 
 .comment-metadata {
