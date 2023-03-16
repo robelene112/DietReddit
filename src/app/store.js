@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import subRedditsSlice from "../features/subredditstate/subRedditsSlice";
+import subRedditsSlice from "../features/subreddits/subRedditsSlice";
 import postListSlice from "../features/postlist/postListSlice";
 import searchBarSlice from "../features/searchbar/searchBarSlice";
 
