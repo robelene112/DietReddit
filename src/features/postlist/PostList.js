@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PostContainer from "../../components/postcontainer/PostContainer";
 import "./PostList.css";
 import "./PostList-mobile.css";
 import { useSelector } from "react-redux";
 import { postListSliceSelector } from "./postListSlice";
+import {
+  searchBarValueSelector,
+  searchedPostsSelector,
+} from "../searchbar/searchBarSlice";
 
 const PostList = () => {
   const posts = useSelector(postListSliceSelector);
+  const searchedPosts = useSelector(searchedPostsSelector);
+  const searchbarValue = useSelector(searchBarValueSelector);
+  const postsToRender = searchbarValue ? searchedPosts : posts;
 
   return (
     <div className="postlist-div">
-      {posts.map((post, index) => {
+      {postsToRender.map((post, index) => {
         return (
           <PostContainer
             key={index}
