@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.38d9a564.css",
+    "main.js": "/static/js/main.88cf874d.js",
+    "static/media/kirby.png": "/static/media/kirby.6e97cab8b8b5fbb5a2bb.png",
+    "static/media/funny.png": "/static/media/funny.85fe0bdd7f6c27a07aa5.png",
+    "static/media/movies.png": "/static/media/movies.26e4c35ac4578e6514da.png",
+    "static/media/mildlyinfuriating.png": "/static/media/mildlyinfuriating.43b47edb45dfad803ca8.png",
+    "static/media/interestingasf.png": "/static/media/interestingasf.4f7c5035604840b0eff9.png",
+    "static/media/gaming.png": "/static/media/gaming.024b21cdd5ea53aa6a9b.png",
+    "static/media/askreddit.png": "/static/media/askreddit.31f66f7b28cd4e743af4.png",
+    "index.html": "/index.html",
+    "main.38d9a564.css.map": "/static/css/main.38d9a564.css.map",
+    "main.88cf874d.js.map": "/static/js/main.88cf874d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38d9a564.css",
+    "static/js/main.88cf874d.js"
+  ]
+}
