@@ -1,17 +1,11 @@
-import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchReddit } from "../../api/reddit";
 
 export const fetchPosts = createAsyncThunk(
   "postListSlice/fetchPosts",
   async (arg, { getState }) => {
     const { selectedSubReddit } = getState().subRedditsSlice;
-    const url = `https://www.reddit.com/r/${selectedSubReddit}.json`;
-    const response = await fetch(url);
-    if (response.status !== 200) {
-      throw new Error("Could not fetch resource");
-    }
-    const json = await response.json();
-
-    return json;
+    return fetchReddit(`/r/${selectedSubReddit}.json`);
   }
 );
 
@@ -19,14 +13,10 @@ export const fetchComments = createAsyncThunk(
   "postListSlice/fetchComments",
   async (postNum, { getState }) => {
     const postToFetch = getState().postListSlice.posts[postNum].content;
-    const permaLink = postToFetch.permalink.slice(0, -1);
-    const redditUrl = "https://www.reddit.com";
-    const url = redditUrl + permaLink + ".json";
-    const response = await fetch(url);
-    if (response.status !== 200) {
-      throw new Error("Could not fetch resource");
-    }
-    const json = await response.json();
+    // The ID is sufficient; titles in permalinks may contain encoded characters.
+    const json = await fetchReddit(
+      `/r/${postToFetch.subreddit}/comments/${postToFetch.id}.json`
+    );
 
     return { json: json, postNum: postNum };
   }
@@ -34,7 +24,7 @@ export const fetchComments = createAsyncThunk(
 
 const postListSlice = createSlice({
   name: "postListSlice",
-  initialState: { posts: [] },
+  initialState: { posts: [], error: null },
   reducers: {
     viewComments: (state, action) => {
       state.posts[action.payload].showComments =
@@ -43,6 +33,12 @@ const postListSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchPosts.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(fetchPosts.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         let posts = [];
         for (const post of action.payload.data.children) {
@@ -53,6 +49,13 @@ const postListSlice = createSlice({
           });
         }
         state.posts = posts;
+      })
+      .addCase(fetchComments.pending, (state, action) => {
+        state.posts[action.meta.arg].commentsError = null;
+      })
+      .addCase(fetchComments.rejected, (state, action) => {
+        const post = state.posts[action.meta.arg];
+        if (post) post.commentsError = action.error.message;
       })
       .addCase(fetchComments.fulfilled, (state, action) => {
         const jsonComments = action.payload.json[1].data.children;

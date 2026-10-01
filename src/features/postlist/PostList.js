@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PostContainer from "../../components/postcontainer/PostContainer";
 import "./PostList.css";
 import "./PostList-mobile.css";
@@ -11,12 +11,14 @@ import {
 
 const PostList = () => {
   const posts = useSelector(postListSliceSelector);
+  const error = useSelector((state) => state.postListSlice.error);
   const searchedPosts = useSelector(searchedPostsSelector);
   const searchbarValue = useSelector(searchBarValueSelector);
   const postsToRender = searchbarValue ? searchedPosts : posts;
 
   return (
     <div className="postlist-div">
+      {error && <p role="alert">{error}</p>}
       {postsToRender.map((post, index) => {
         return (
           <PostContainer
